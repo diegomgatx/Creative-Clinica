@@ -1,0 +1,144 @@
+<html><head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <style>
+  .modal-header, h4, .close {
+      background-color: #fd7e14;
+      color:white !important;
+      text-align: center;
+      font-size: 30px;
+  }
+  .modal-footer {
+      background-color: #f9f9f9;
+  }
+  body{
+	background-color: #c1c1c1;
+  }
+  </style>
+
+<script language="JavaScript"> 
+
+function enviardados(){ 
+	
+	if(document.dados.possui_empresa.value=="") { 
+		alert( "Por gentileza, preencha Se você possui Empresa ou não" ); 
+		return false; 
+	}
+
+	if(document.dados.firstname.value=="") { 
+		alert( "Por gentileza, preencha o campo Nome" ); 
+		document.dados.firstname.focus(); 
+		return false; 
+	}
+
+	if(document.dados.phone.value=="") { 
+		alert( "Por gentileza, preencha o campo Telefone" ); 
+		document.dados.phone.focus(); 
+		return false; 
+	}
+
+	if(document.dados.email.value=="") { 
+		alert( "Por gentileza, preencha o campo E-mail" ); 
+		document.dados.email.focus(); 
+		return false; 
+	}
+
+
+return true;
+}
+ 
+</script>
+
+</head>
+<body class="modal-open">
+<br><br>
+	<div class="container" align="center">
+	  <!-- Trigger the modal with a button -->
+	  <br><br><br>
+	  <img src="" border="0" alt="">
+
+	  <!-- Modal -->
+	  <div class="modal fade in" id="myModal" role="dialog" style="display: block; padding-left: 17px;">
+		<div class="modal-dialog">
+		  <!-- Modal content-->
+		  <div class="modal-content">
+			<div class="modal-header" style="padding:10px 25px;">
+			  <button type="button" class="close" data-dismiss="modal">×</button>
+			  <h4><span class="glyphicon glyphicon-copy"></span> ORÇAMENTO</h4>
+			</div>
+			<div class="modal-body" style="padding:40\px 50px;">
+			  <form class="form-horizontal" id="form_members" name="dados" role="form" action="envio_cadastro_interesse.php" method="POST" onsubmit="return enviardados();">
+				<div class="form-group" align="left">
+				  <label for="possui_empresa"><span class="glyphicon glyphicon-briefcase"></span> Possui Site?</label><br>
+				  <input type="text" class="form-control" name="possui_empresa" placeholder="Caso já tenha site, digite aqui">
+				</div>
+
+				<div class="form-group">
+				  <label for="firstname"><span class="glyphicon glyphicon-user"></span> Nome</label>
+				  <input type="text" class="form-control" name="firstname" id="firstname" required="true" placeholder="Digite seu nome">
+				</div>
+				
+				<div class="form-group">
+				  <label for="sel1">Qual a Especialidade</label>
+				  <select class="form-control" id="sel1" name="profissao" required="true">
+				    <option value="">Selecione</option>
+				    <option value="Enfermagem">Enfermagem</option>
+				    <option value="Estetica">Estética</option>
+				    <option value="Fisioterapia">Fisioterapia</option>
+				    <option value="Fonoaudiologia">Fonoaudiologia</option>
+				    <option value="Medicina">Medicina</option>
+				    <option value="Nutricao">Nutricao</option>
+				    <option value="Odontologia">Odontologia</option>
+				    <option value="Outra">Outra</option>
+				  </select>
+				</div>
+
+				<div class="form-group">
+				  <label for="phone"><span class="glyphicon glyphicon-phone"></span> Telefone</label>
+				  <input type="text" class="form-control" name="phone" id="phone" placeholder="Digite seu melhor contato para Telefone" required="true">
+				</div>
+
+				<div class="form-group">
+				  <label for="email"><span class="glyphicon glyphicon-envelope"></span> E-mail</label>
+				  <input type="text" class="form-control" name="email" id="email" placeholder="Digite seu e-mail" required="true">
+				</div>
+
+				<div class="form-group">
+				  <label for="comentario"><span class="glyphicon glyphicon-list"></span> Dúvidas/Comentários</label>
+				  <textarea class="form-control" name="comentario" id="comentario" rows="3" placeholder="Digite alguma dúvida ou faça algum comentário, caso entenda ser necessário"></textarea>
+				</div>
+				
+				<div class="form-group">
+				  <!--<label for="password"><span class="glyphicon glyphicon-eye-open"></span> Senha</label>-->
+				  <input type="hidden" class="form-control" name="password" id="password" value="Mudar123" placeholder="Define uma senha para posterior acesso">
+				  <input type="hidden" name="tipo" value="Orçamento">
+				</div>
+				  <button type="submit" class="btn btn-default btn-block" name="submit" id="submit"><span class="glyphicon glyphicon-ok-sign"></span> ENVIAR DADOS</button>  
+			  </form>
+			</div>
+			<div class="modal-footer">
+			  <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancelar</button>
+			</div>
+		  </div>
+		  
+		</div>
+	  </div> 
+	</div>
+	 
+	<script>
+	$(document).ready(function(){
+		$("#myModal").modal();
+	});
+
+	$(document).ready(function(){
+		$("#myBtn").click(function(){
+			$("#myModal").modal();
+		});
+	});
+	</script>
+
+
+<div class="modal-backdrop fade in"></div></body></html>
